@@ -5,5 +5,5 @@ def get_list_books(name_book):
     return books
 
 def get_list_book_borrow_by_user_id(user_id):
-    books = base_dl.get_data('book_borrow', {})
+    books = base_dl.get_data('books', {'borrower':user_id})
     return books

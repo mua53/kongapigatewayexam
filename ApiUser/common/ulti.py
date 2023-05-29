@@ -1,6 +1,8 @@
+import json
+
 def response_data_error(mess):
-    return {
+    return json.dumps({
         'error': True,
         'message': mess
-    }
+    })
 

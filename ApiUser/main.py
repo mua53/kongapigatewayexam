@@ -19,11 +19,10 @@ def page_not_found(e):
     response = ultis.response_data_error("Not have API")
     return Response(response,status=404)
 
-@app.handle_exception(Exception)
-def handle_exception(e):
-    if isinstance(e, HTTPException):
-        return e
-    
+@app.errorhandler(400)
+def error_404(e):
+    response = ultis.response_data_error("Bad request")
+    return Response(response,status=404)
     
 
 if __name__ == '__main__':
