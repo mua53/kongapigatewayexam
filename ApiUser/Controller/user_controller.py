@@ -11,7 +11,7 @@ users = Blueprint('users', __name__, url_prefix="/user")
 
 @users.route('/login', methods=['POST'])
 def login():
-    user_data = request.data
+    user_data = request.get_json()
     user = user_bl.get_user(user_data)
     if user:
         return Response(response=user, status=enum.HTTP_STATUS.SUCCESS.value)
