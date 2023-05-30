@@ -6,7 +6,7 @@ def get_user(user_data):
         "username": user_data["username"],
         "password": user_data["password"]
     }
-    user = user_dl.base_dl.get_data_one('user',query)
+    user = base_dl.get_data_one('user',query)
     if (user):
         return user
     else:

@@ -14,7 +14,8 @@ def login():
     user_data = request.get_json()
     user = user_bl.get_user(user_data)
     if user:
-        return Response(response=user, status=enum.HTTP_STATUS.SUCCESS.value)
+        response = json.dumps(user, default=json_util.default)
+        return Response(response=response, mimetype="application/json", status=enum.HTTP_STATUS.SUCCESS.value)
     else:
         response = ulti.response_data_error("username or password is incorrect")
         return Response(response, enum.HTTP_STATUS.AUTHOR.value)
@@ -24,8 +25,8 @@ def sign_up():
     user_signup = request.get_json()
     user = user_bl.sign_up(user_signup)
     if user:
-        response = json.loads(json_util.dumps(user))
-        return Response(response=response, status=enum.HTTP_STATUS.SUCCESS.value)
+        response = json_util.dumps(user, default=json_util.default)
+        return Response(response=response, mimetype="application/json", status=enum.HTTP_STATUS.SUCCESS.value)
     else:
         response = ulti.response_data_error("Username already exists")
         return Response(response=response, status=enum.HTTP_STATUS.SUCCESS.value)
