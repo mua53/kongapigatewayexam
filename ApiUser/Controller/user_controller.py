@@ -28,8 +28,8 @@ def sign_up():
         response = json_util.dumps(user, default=json_util.default)
         return Response(response=response, mimetype="application/json", status=enum.HTTP_STATUS.SUCCESS.value)
     else:
-        response = ulti.response_data_error("Username already exists")
-        return Response(response=response, status=enum.HTTP_STATUS.SUCCESS.value)
+        response = None
+        return Response(response=response, status=enum.HTTP_STATUS.DUPLICATE.value)
 
 
 
