@@ -1,5 +1,6 @@
 package com.example.app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -23,10 +24,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun moveBorrowBook() {
-        TODO("Not yet implemented")
+        val intent = Intent(applicationContext, BooksActivity::class.java)
+        startActivity(intent)
     }
 
     private fun moveFindBook() {
-        TODO("Not yet implemented")
+        val intent = Intent(applicationContext, BooksActivity::class.java)
+        startActivity(intent)
     }
 }
